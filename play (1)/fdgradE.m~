@@ -1,0 +1,8 @@
+function [a,b]=fdgradE(sig,Sig)
+
+Minv=5.55e-4;
+sqrtwoopi=0.797884560802865;
+
+
+a=-0.75/sig^3+sqrtwoopi*sig/sqrt(sig^2+Sig^2)^3;
+b=-0.75*Minv/sig^3+sqrtwoopi*Sig/sqrt(sig^2+Sig^2)^3;

@@ -1,0 +1,188 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Coulomb truncation:
+\end_layout
+
+\begin_layout Standard
+For the indicator function, we have the non-unitary fourier transform with
+ respect to the L2 norm in 
+\begin_inset Formula $n$
+\end_inset
+
+ dimensions given by 
+\begin_inset Formula 
+\[
+{\displaystyle \chi_{[0,1]}(|\mathbf{r}|)\left(1-|\mathbf{r}|^{2}\right)^{\delta}}\rightarrow{\displaystyle \pi^{-\delta}\Gamma(\delta+1)\left|\frac{\boldsymbol{k}}{2\pi}\right|^{-\frac{n}{2}-\delta}J_{\frac{n}{2}+\delta}(|\boldsymbol{k}|)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In our case,the exponent 
+\begin_inset Formula $\delta=0$
+\end_inset
+
+.
+ Moreover the Fourier transform of the distribution 
+\begin_inset Formula $|\mathbf{r}|^{-\alpha}$
+\end_inset
+
+ is given by 
+\begin_inset Formula 
+\[
+|\mathbf{r}|^{-\alpha}\rightarrow{\displaystyle \frac{(2\pi)^{n}}{\pi^{\frac{n}{2}}2^{\alpha}}\frac{\Gamma\left(\frac{n-\alpha}{2}\right)}{\Gamma\left(\frac{\alpha}{2}\right)}|\boldsymbol{k}|^{-(n-\alpha)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In our case, the exponent 
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+.
+ We are looking for the fourier transform of the truncated coulomb kernel
+\begin_inset Formula 
+\begin{align*}
+{\displaystyle \chi_{[0,1]}}\left(\frac{|\mathbf{r}|}{R}\right)|\mathbf{r}|^{-1} & =\int\frac{d^{3}\mathbf{q}}{\left(2\pi\right)^{3}}{\displaystyle \left|\frac{\mathbf{q}}{2\pi}\right|^{-\frac{3}{2}}J_{\frac{3}{2}}(|\mathbf{q}|)}e^{i\mathbf{q}\frac{\mathbf{r}}{R}}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}e^{i\mathbf{k}\mathbf{r}}4\pi{\displaystyle |\mathbf{k}|^{-2}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}\int\frac{d^{3}\mathbf{q}}{\left(2\pi\right)^{3}}{\displaystyle \left|\mathbf{q}\right|^{-\frac{3}{2}}J_{\frac{3}{2}}(R|\mathbf{q}|)}e^{i(\mathbf{q}+\mathbf{k})\mathbf{r}}{\displaystyle |\mathbf{k}|^{-2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Taking the Fourier transform at both sides, we get:
+\begin_inset Formula 
+\begin{align*}
+{\displaystyle \chi_{[0,1]}}\left(\frac{|\mathbf{r}|}{R}\right)|\mathbf{r}|^{-1} & \rightarrow\int d^{3}\mathbf{r}e^{-i\mathbf{p}\mathbf{r}}4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}\int\frac{d^{3}\mathbf{q}}{\left(2\pi\right)^{3}}{\displaystyle \left|\mathbf{q}\right|^{-\frac{3}{2}}J_{\frac{3}{2}}(R|\mathbf{q}|)}e^{i(\mathbf{q}+\mathbf{k})\mathbf{r}}{\displaystyle |\mathbf{k}|^{-2}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}\int\frac{d^{3}\mathbf{q}}{\left(2\pi\right)^{3}}{\displaystyle \left|\mathbf{q}\right|^{-\frac{3}{2}}J_{\frac{3}{2}}(R|\mathbf{q}|)}(2\pi)^{3}\delta(\mathbf{q}+\mathbf{k}-\mathbf{p}){\displaystyle |\mathbf{k}|^{-2}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}{\displaystyle J_{\frac{3}{2}}(R|\mathbf{p}-\mathbf{k}|)}\left|\mathbf{p}-\mathbf{k}\right|^{-\frac{3}{2}}{\displaystyle |\mathbf{k}|^{-2}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}{\displaystyle \frac{J_{\frac{3}{2}}(R|\mathbf{p}-\mathbf{k}|)}{\left|\mathbf{p}-\mathbf{k}\right|^{\frac{3}{2}}|\mathbf{k}|^{2}}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}{\displaystyle \frac{J_{\frac{3}{2}}(R|\mathbf{k}|)}{\left|\mathbf{k}\right|^{\frac{3}{2}}|\mathbf{k}+\mathbf{p}|^{2}}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}{\displaystyle \frac{J_{\frac{3}{2}}(R|\mathbf{k}|)}{\left|\mathbf{k}\right|^{\frac{3}{2}}\left(\mathbf{k}^{2}+2\mathbf{k}\mathbf{p}+\mathbf{p}^{2}\right)}}\\
+ & =8\pi^{2}\left(2\pi R\right)^{3/2}\int_{0}^{\infty}\frac{dk}{\left(2\pi\right)^{3}}\int_{-1}^{1}d(\cos\theta){\displaystyle \frac{J_{\frac{3}{2}}(Rk)k^{1/2}}{\left(k^{2}+2kp\cos\theta+p^{2}\right)}}\\
+ & =\frac{\left(2\pi R\right)^{3/2}}{\pi}\int_{0}^{\infty}dk\int_{-1}^{1}du{\displaystyle \frac{J_{\frac{3}{2}}(Rk)k^{1/2}}{\left(k^{2}+2kpu+p^{2}\right)}}\\
+ & =\frac{\left(2\pi R\right)^{3/2}}{\pi}\int_{0}^{\infty}dkJ_{\frac{3}{2}}(Rk)k^{1/2}\frac{1}{2kp}\log\left|\frac{\left(k^{2}+2kp+p^{2}\right)}{\left(k^{2}-2kp+p^{2}\right)}\right|\\
+ & =\frac{\left(2\pi R\right)^{3/2}}{\pi p}\int_{0}^{\infty}dkJ_{\frac{3}{2}}(Rk)\frac{1}{k^{1/2}}\log\left|\frac{k+p}{k-p}\right|\\
+ & =-\frac{\left(2\pi R\right)^{3/2}}{\pi p}\frac{\sqrt{2\pi}(\cos(pR)-1)}{pR^{3/2}}\\
+ & =\frac{4\pi}{p^{2}}\left(1-\cos\left(pR\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a translated system we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+{\displaystyle \chi_{[0,1]}}\left(\frac{|\mathbf{r}-\mathbf{a}|}{R}\right)|\mathbf{r}|^{-1} & \rightarrow\int d^{3}\mathbf{r}e^{-i\mathbf{p}\mathbf{r}}4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}\int\frac{d^{3}\mathbf{q}}{\left(2\pi\right)^{3}}{\displaystyle \left|\mathbf{q}\right|^{-\frac{3}{2}}J_{\frac{3}{2}}(R|\mathbf{q}|)}e^{i(\mathbf{q}+\mathbf{k})\mathbf{r}}{\displaystyle |\mathbf{k}|^{-2}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}\int\frac{d^{3}\mathbf{q}}{\left(2\pi\right)^{3}}{\displaystyle \left|\mathbf{q}\right|^{-\frac{3}{2}}J_{\frac{3}{2}}(R|\mathbf{q}|)}(2\pi)^{3}\delta(\mathbf{q}+\mathbf{k}-\mathbf{p}){\displaystyle |\mathbf{k}|^{-2}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}{\displaystyle J_{\frac{3}{2}}(R|\mathbf{p}-\mathbf{k}|)}\left|\mathbf{p}-\mathbf{k}\right|^{-\frac{3}{2}}{\displaystyle |\mathbf{k}|^{-2}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}{\displaystyle \frac{J_{\frac{3}{2}}(R|\mathbf{p}-\mathbf{k}|)}{\left|\mathbf{p}-\mathbf{k}\right|^{\frac{3}{2}}|\mathbf{k}|^{2}}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}{\displaystyle \frac{J_{\frac{3}{2}}(R|\mathbf{k}|)}{\left|\mathbf{k}\right|^{\frac{3}{2}}|\mathbf{k}+\mathbf{p}|^{2}}}\\
+ & =4\pi\left(2\pi R\right)^{3/2}\int\frac{d^{3}\mathbf{k}}{\left(2\pi\right)^{3}}{\displaystyle \frac{J_{\frac{3}{2}}(R|\mathbf{k}|)}{\left|\mathbf{k}\right|^{\frac{3}{2}}\left(\mathbf{k}^{2}+2\mathbf{k}\mathbf{p}+\mathbf{p}^{2}\right)}}\\
+ & =8\pi^{2}\left(2\pi R\right)^{3/2}\int_{0}^{\infty}\frac{dk}{\left(2\pi\right)^{3}}\int_{-1}^{1}d(\cos\theta){\displaystyle \frac{J_{\frac{3}{2}}(Rk)k^{1/2}}{\left(k^{2}+2kp\cos\theta+p^{2}\right)}}\\
+ & =\frac{\left(2\pi R\right)^{3/2}}{\pi}\int_{0}^{\infty}dk\int_{-1}^{1}du{\displaystyle \frac{J_{\frac{3}{2}}(Rk)k^{1/2}}{\left(k^{2}+2kpu+p^{2}\right)}}\\
+ & =\frac{\left(2\pi R\right)^{3/2}}{\pi}\int_{0}^{\infty}dkJ_{\frac{3}{2}}(Rk)k^{1/2}\frac{1}{2kp}\log\left|\frac{\left(k^{2}+2kp+p^{2}\right)}{\left(k^{2}-2kp+p^{2}\right)}\right|\\
+ & =\frac{\left(2\pi R\right)^{3/2}}{\pi p}\int_{0}^{\infty}dkJ_{\frac{3}{2}}(Rk)\frac{1}{k^{1/2}}\log\left|\frac{k+p}{k-p}\right|\\
+ & =-\frac{\left(2\pi R\right)^{3/2}}{\pi p}\frac{\sqrt{2\pi}(\cos(pR)-1)}{pR^{3/2}}\\
+ & =\frac{4\pi}{p^{2}}\left(1-\cos\left(pR\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

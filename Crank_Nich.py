@@ -204,18 +204,18 @@ psie=values2[1].T[n_fini-1] #excited state for first potental
 Eg=values2[0][n_ini-1]   #ground state energy for first potental
 Ee=values2[0][n_fini-1]   #excited state energy for first potental
 
-psi1=psig/np.sqrt( Ninteg2(x,psig**2,x0,xf,dx) )
+psi1=(0.1*psig+values2[1].T[0])/np.sqrt( Ninteg2(x,(0.1*psig+values2[1].T[0])**2,x0,xf,dx) )
 psi2=psie/np.sqrt( Ninteg2(x,psie**2,x0,xf,dx) )
-#psi2=psigprime/np.sqrt( Ninteg2(x,psigprime**2,x0,xf,dx) )
 E1=Eg
 E2=Ee
-#E2=Egprime
+
 print(values2[0][0:10])
 
 plt.plot(x,psi1)
 plt.plot(x,psi2)
 plt.title("initial and target states")
 plt.show()
+
 #######################################################################
 #########################################################################
 
@@ -267,7 +267,7 @@ for i in range(points_t):
     A2mattinv=1*A2p*dt
     psinew=TDMASolve(A0mattinv, A1mattinv, A2mattinv, mattmult)
 
-    psipres=psinew/np.sqrt( Ninteg2(x,psinew**2,x0,xf,dx) )
+    psipres=psinew/np.sqrt( Ninteg2(x,np.real(psinew)**2+np.imag(psinew)**2,x0,xf,dx) )
     rhos.append(np.real(psinew)**2+np.imag(psinew)**2)
 
 
@@ -294,8 +294,10 @@ psirho1=np.array([polarR(psi2[j]) for j in range(points_x)]).T
 psirho2=np.array([polarR(psinew[j]) for j in range(points_x)]).T
 phiphase1=np.array([polarThe(psi2[j]) for j in range(points_x)]).T
 phiphase2=np.array([polarThe(psinew[j]) for j in range(points_x)]).T
-print(Ninteg(x,psirho1**2,x0,[xf],dx)[0])
-print(Ninteg(x,psirho2**2,x0,[xf],dx)[0])
+print(Ninteg(x,psirho1**2,x0,[xf],dx)[0], "norm eigen 1")
+print(Ninteg2(x,np.real(psi2)**2+np.imag(psi2)**2,x0,xf,dx) , "norm eigen 2")
+print(Ninteg(x,psirho2**2,x0,[xf],dx)[0],'norm evolved 1')
+print(Ninteg2(x,np.real(psinew)**2+np.imag(psinew)**2,x0,xf,dx) ,'norm evolved 2')
 #psirho= np.sqrt(abs(   np.conj(np.array(psigrid))  *np.array(psigrid)   ))
 #phiphase=np.real( 1j*np.log(   np.array(psigrid) / psirho   )  )
 bounds=1

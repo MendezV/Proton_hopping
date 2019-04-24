@@ -1,0 +1,4 @@
+#Save the following to totalE.in
+include common.in
+ionic-minimize nIterations 10
+dump End State BoundCharge

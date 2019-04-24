@@ -1,0 +1,4 @@
+# Ionic positions in cartesian coordinates:
+ion H   0.000000000000000   0.000000000000000   ${ibound} 1
+ion H   0.000000000000000   0.000000000000000  ${inpos} 1
+ion H   0.000000000000000   0.000000000000000  -${ibound} 1

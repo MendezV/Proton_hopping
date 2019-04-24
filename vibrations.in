@@ -1,0 +1,6 @@
+#Save the following to vibrations.in
+include common.in
+vibrations \
+    centralDiff yes \
+    translationSym yes \
+    rotationSym yes

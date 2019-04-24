@@ -1,0 +1,4 @@
+include common.in
+ionic-minimize nIterations 10   #Geometry optimization
+dump End Ecomponents
+dump-name ${ibound}_${inpos}_H2.$VAR

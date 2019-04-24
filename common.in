@@ -1,0 +1,20 @@
+#Save to common.in
+lattice Cubic 15
+coulomb-interaction Isolated
+coulomb-truncation-embed 0 0 0
+ion-species GBRV/$ID_pbe.uspp
+elec-cutoff 20 100
+coords-type cartesian
+
+include ${CONFIG}.ionpos
+initial-state ${CONFIG}.$VAR
+dump-name ${CONFIG}.$VAR
+dump End None
+
+elec-initial-charge ${CHARGE}
+
+fluid LinearPCM
+pcm-variant CANDLE
+fluid-solvent H2O
+fluid-cation Na+ 1.
+fluid-anion F- 1.

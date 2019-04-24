@@ -1,0 +1,11 @@
+lattice Cubic 25
+include H2.ionpos
+coords-type Cartesian
+core-overlap-check None  #GBRV H psp core radius > H2 bond length/2
+
+coulomb-interaction Isolated
+coulomb-truncation-embed 0 0 0
+
+ion-species GBRV/$ID_pbe.uspp
+elec-cutoff 20 100
+

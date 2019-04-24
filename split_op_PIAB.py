@@ -103,7 +103,7 @@ def Ninteg(x,func,x0,xf,dx):
     intfunc=np.zeros(np.size(xf))
     for i in range(np.size(xf)):
         intfunc[i]=spl.integral(x0, xf[i])
- 
+
     return intfunc
 
 def Ninteg2(x,func,x0,xf,dx):
@@ -175,9 +175,7 @@ plt.show()
 
 
 ###############################################################
-filename=sys.argv[1]
-V=np.loadtxt(filename,delimiter=',')
-Vprime=np.concatenate((V,V), axis=1)
+V=[np.zeros(2*points_x) for tau in range(points_t)]
 #Vprime=[np.concatenate((0.1*(x)**2,0.1*(x)**2), axis=None) for i in range(points_t)]
 psigrid=[]
 norm=[]
@@ -202,16 +200,18 @@ plt.show()
 '''
 #points_t=10000
 for i in range(points_t):
-
-	psipres=psigrid[i]
-	Vc=Vprime[i][:]
-	#Vc=0
-	#freq =np.fft.fftshift(np.fft.fftfreq(points_x, d=dx))
-	freq =np.fft.fftfreq(2*points_x, d=dx)
-	#psinew=np.fft.fftshift(fft.ifft(np.exp(-(2*np.pi/4.0)*1j*dt*freq**2)*fft.fft(np.exp(-1j*dt*Vc)*psipres)))
-	psinew=fft.ifft(np.exp((2*np.pi/4.0)*1j*dt*freq**2)*fft.fft(np.exp(-1j*dt*Vc)*psipres))
-	#psi_new=np.concatenate( (psinew[int((psinew[points_x-1)/2):points_x], psinew[:int((psinew[points_x-1)/2)])  , axis=0)
-	psigrid.append(psinew)
+    psipres=psigrid[i]
+    Vc=V[i][:]
+    #Vc=0
+    #freq =np.fft.fftshift(np.fft.fftfreq(points_x, d=dx))
+    freq =np.fft.fftfreq(2*points_x, d=dx)
+    #psinew=np.fft.fftshift(fft.ifft(np.exp(-(2*np.pi/4.0)*1j*dt*freq**2)*fft.fft(np.exp(-1j*dt*Vc)*psipres)))
+    #print(np.shape(np.exp((2*np.pi/4.0)*1j*dt*freq**2)),np.shape(np.exp(-1j*dt*Vc)),np.shape(psipres))
+    psinew=fft.ifft(np.exp((2*np.pi/4.0)*1j*dt*freq**2)*fft.fft(np.exp(-1j*dt*Vc)*psipres))
+    #psi_new=np.concatenate( (psinew[int((psinew[points_x-1)/2):points_x], psinew[:int((psinew[points_x-1)/2)])  , axis=0)
+    psipres=psinew/np.sqrt( Ninteg2(x,np.real(psinew)**2+np.imag(psinew)**2,x0,xf,dx) )
+    rhos.append(np.real(psinew)**2+np.imag(psinew)**2)
+    psigrid.append(psinew)
 
 
 import math
@@ -219,7 +219,7 @@ def polarThe(z):
     a= z.real
     b= z.imag
     theta = math.atan2(b,a)
-    return theta 
+    return theta
 
 def polarR(z):
     a= z.real

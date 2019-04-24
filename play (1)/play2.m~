@@ -1,0 +1,5 @@
+sig=1
+Sig=0.01
+
+Ecep(sig,Sig);
+
